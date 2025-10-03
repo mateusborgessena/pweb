@@ -16,6 +16,9 @@
             function minhafuncao2(arg){
                 var raiz = Math.sqrt(arg);  
             }
+            function EscreveDiv(texto){
+                document.getElementById("MinhaDiv").innerHTML = texto;
+            }
     </script>
     <body>
         <h1>Raiz Quadrada</h1>
@@ -23,5 +26,8 @@
         <button onclick="minhafuncao1(36)">Raiz de 36</button> <br>
         <button onclick="minhafuncao2(49)">Raiz de 49</button> <br>
         <hr>
+        <h1>Escrevendo na Div</h1>
+        <button onclick="EscreveDiv('<h1>PROGRAMAÇÃO WEB</h1>')">Escrever</button> <br><br>
+        <div id="MinhaDiv"></div>
     </body>
 </html>
