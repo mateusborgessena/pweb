@@ -7,19 +7,16 @@
         </title>
     </head>
     <script type="text/javascript">
-        function minhafuncao(arg1,arg2){
-           
-            var soma = arg1 + arg2;
-            var msg = 'A soma é igual a ';
-            alert(msg + soma);
-        }
+        function minhafuncao(arg){
+           var raiz = Math.sqrt(arg);  
+              }
         function escreve(arg){
             document.write(arg);
         }
     </script>
     <body>
         <h1>JavaScript</h1>
-        <button onclick="minhafuncao(10,20)">Clique</button> <br>
+        <button onclick="minhafuncao(25)">Raiz de 25</button> <br>
         <button onclick="escreve('<h1>PROGRAMAÇÃO WEB</h1>')">Escreve</button> <br>
     </body>
 </html>
