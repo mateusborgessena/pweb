@@ -23,16 +23,12 @@
                 texto = prompt('Digite um texto qualquer ai');
                 document.getElementById("MinhaDiv2").innerHTML = texto;
             }
-            function Desafio(N){
-                if (n < 1){
-                    console.log("Digite um numero maior ou igual a um");
-                    return;
-                }
-                for (let i = 1; i <= n; i++) {
-                    console.log(i);
-                }
-            }
-
+            function contar(){
+                let n = +prompt("Digite um numero:");
+                let t = "";
+                for(let i=1; i<=n; i++) t += i+"<br>"; 
+                res.innerHTML = t;
+            }                                
     </script>
     <body>
         <h1>Raiz Quadrada</h1>
@@ -47,7 +43,7 @@
         <h1>Escrevendo no texto dinamico</h1>
         <button onclick="EscreveDiv2()">Escrever</button> <br><br>
         <div id="MinhaDiv2"></div>
-        let n = parseInt(prompt("Digite um número de 1 até n:"));
-        contarDeUmAteN(n);  
+        <button onclick="contar()">Contar</button>
+        <div id="res"></div>
     </body>
 </html>
