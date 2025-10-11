@@ -33,11 +33,44 @@
                 }
             }
         </script>
+        <script>
+            let frutas = Array();
+
+            frutas [0] = "Banana";
+            frutas [1] = "laranja";
+            frutas [2] = "uva";
+            frutas [3] = "melancia";
+            frutas [4] = "manga";
+            frutas [5] = "Maçã";
+            frutas [6] = "pera";
+
+            function mostarfrutas(){
+                const container = document.getElementById("MinhaDiv1");
+                for (var i = 0; i < frutas.length; i++) {
+                    var tag = "<h5>" +i+'-'+frutas[i] + "</h5>";
+                    container.innerHTML += tag;
+                }
+            }
+
+            function posiçaofrutas(){
+                var frut = prompt("Qual o tipo de linguagem você quer:");
+                if (frut >=0 && frut <=6){
+                    alert (frutas[frut]);
+                } else {
+                    alert("posiçaõ inválido!")
+                }
+            }
+        </script>
     </head>
     <body>
         <h1>Array de Linguagens</h1>
         <button onclick="mostarlinguagens()">Criar Array</button> <br><br>
         <button onclick="posiçaolinguagens()">Posição no Array</button>
         <div id="MinhaDiv"></div>
+        <hr>
+        <h1>Array de Frutas</h1>
+        <button onclick="mostarfrutas()">Criar Array de Frutas</button> <br><br>
+        <button onclick="posiçaofrutas()">Posição no Array de Frutas</button>
+        <div id="MinhaDiv1"></div>
     </body>
 </html>
