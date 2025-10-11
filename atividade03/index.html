@@ -43,6 +43,11 @@
             frutas [4] = "manga";
             frutas [5] = "Maçã";
             frutas [6] = "pera";
+            frutas [7] = "Uva verde";
+            frutas [8] = "Ameixa";
+            frutas [9] = "Amora";
+            frutas [10] = "Morango";
+
 
             function mostarfrutas(){
                 const container = document.getElementById("MinhaDiv1");
@@ -53,8 +58,8 @@
             }
 
             function posiçaofrutas(){
-                var frut = prompt("Qual o tipo de linguagem você quer:");
-                if (frut >=0 && frut <=6){
+                var frut = prompt("Qual a Fruta você quer:");
+                if (frut >=0 && frut <=10){
                     alert (frutas[frut]);
                 } else {
                     alert("posiçaõ inválido!")
