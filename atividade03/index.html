@@ -16,6 +16,7 @@
             linguagens [5] = "Ruby on rails";
             linguagens [6] = "C++";
 
+
             function mostarlinguagens(){
                 const container = document.getElementById("MinhaDiv");
                 for (var i = 0; i < linguagens.length; i++) {
@@ -31,6 +32,9 @@
                 } else {
                     alert("posiçaõ inválido!")
                 }
+            }
+            function limparlinguagens(){
+                document.getElementById("MinhaDiv").innerHTML = "";
             }
         </script>
         <script>
@@ -65,16 +69,21 @@
                     alert("posiçaõ inválido!")
                 }
             }
+            function limparfrutas() {
+                document.getElementById("MinhaDiv1").innerHTML = "";
+            }
         </script>
     </head>
     <body>
         <h1>Array de Linguagens</h1>
         <button onclick="mostarlinguagens()">Criar Array</button> <br><br>
+        <button onclick="limparlinguagens()">Limpar</button>
         <button onclick="posiçaolinguagens()">Posição no Array</button>
         <div id="MinhaDiv"></div>
         <hr>
         <h1>Array de Frutas</h1>
         <button onclick="mostarfrutas()">Criar Array de Frutas</button> <br><br>
+        <button onclick="limparfrutas()">Limpar</button>
         <button onclick="posiçaofrutas()">Posição no Array de Frutas</button>
         <div id="MinhaDiv1"></div>
     </body>
