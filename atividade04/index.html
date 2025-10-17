@@ -5,8 +5,53 @@
         <title>
             Atividade 4
         </title>
+        <script>
+            let pilhaPessoas = array();
+            function mostrarLista(){
+                const container = document.getElementById('minhadiv');
+                container.innerHTML = '';
+                    
+                    for (var i = 0; i < pilhaPessoas.lenght; i++){
+                        var tag = '<h5>' + i + ' - ' + pilhaPessoas[i] + '</h5>';
+                        container.innerHTML += tag;
+                    }
+            }
+            function adicionar (){
+                var nome = prompt('Qual o nome da pessoa?');
+                pilhaPessoas.push(nome);
+                mostrarLista();
+            }
+            function posicao(){
+                var indice = prompt('Qual posicao da lista deseja consultar?');
+                indice = Number(indice);
+                if (indice < 0 || indice >= pilhaPessoas.lenght){
+                    alert('Posição invalida!')
+                    return;
+                }
+                alert('Na posição'+ indice + 'está:' + pilhaPessoas[indice]); 
+            }
+            function remover(){
+                if (pilhaPessoas.lenght === 0){
+                    alert('A pilha está vazia');
+                }else {
+                    let removido = pilhaPessoas.pop();
+                    alert('Removido:' + removido);
+                    mostrarLista();
+                }
+            }
+            function Limparlista(){
+                pilhaPessoas = [];
+                mostrarLista;
+            }
+        </script>
     </head>
     <body>
-        <h1>Atividade 4</h1>
+        <h1>Lista de Pessoas</h1>
+        <button onclick="adicionar">Adicionar pessoas</button>
+        <button onclick="posicao">Posição</button>
+        <button onclick="remover">Remover</button>
+        <button onclick="Limparlista">Limpar</button>
+        <div id="minhadiv"></div>
+        <hr>
     </body>
 </html>
