@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            Atividade 4
-        </title>
-        <script>
-            let pilhaPessoas = array();
-            function mostrarLista(){
-                const container = document.getElementById('minhadiv');
-                container.innerHTML = '';
-                    
-                    for (var i = 0; i < pilhaPessoas.lenght; i++){
-                        var tag = '<h5>' + i + ' - ' + pilhaPessoas[i] + '</h5>';
-                        container.innerHTML += tag;
-                    }
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 4</title>
+    <script>
+        let pilhaPessoas = []; 
+
+        function mostrarLista(){
+            const container = document.getElementById('minhadiv');
+            container.innerHTML = '';
+                
+            for (var i = 0; i < pilhaPessoas.length; i++){ 
+                var tag = '<h5>' + i + ' - ' + pilhaPessoas[i] + '</h5>';
+                container.innerHTML += tag;
             }
-            function adicionar (){
-                var nome = prompt('Qual o nome da pessoa?');
+        }
+
+        function adicionar (){
+            var nome = prompt('Qual o nome da pessoa?');
+            if (nome) {
                 pilhaPessoas.push(nome);
                 mostrarLista();
             }
-            function posicao(){
-                var indice = prompt('Qual posicao da lista deseja consultar?');
-                indice = Number(indice);
-                if (indice < 0 || indice >= pilhaPessoas.lenght){
-                    alert('Posição invalida!')
-                    return;
-                }
-                alert('Na posição'+ indice + 'está:' + pilhaPessoas[indice]); 
+        }
+
+        function posicao(){
+            var indice = prompt('Qual posição da lista deseja consultar?');
+            indice = Number(indice);
+            if (indice < 0 || indice >= pilhaPessoas.length){
+                alert('Posição inválida!');
+                return;
             }
-            function remover(){
-                if (pilhaPessoas.lenght === 0){
-                    alert('A pilha está vazia');
-                }else {
-                    let removido = pilhaPessoas.pop();
-                    alert('Removido:' + removido);
-                    mostrarLista();
-                }
+            alert('Na posição ' + indice + ' está: ' + pilhaPessoas[indice]); 
+        }
+
+        function remover(){
+            if (pilhaPessoas.length === 0){ 
+                alert('A pilha está vazia');
+            } else {
+                let removido = pilhaPessoas.pop();
+                alert('Removido: ' + removido);
+                mostrarLista();
             }
-            function Limparlista(){
-                pilhaPessoas = [];
-                mostrarLista;
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Lista de Pessoas</h1>
-        <button onclick="adicionar()">Adicionar pessoas</button>
-        <button onclick="posicao()">Posição</button>
-        <button onclick="remover()">Remover</button>
-        <button onclick="Limparlista()">Limpar</button> <br><br>
-        <div id="minhadiv"></div>
-        <hr>
-    </body>
+        }
+
+        function Limparlista(){
+            pilhaPessoas = [];
+            mostrarLista(); 
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Pessoas</h1>
+    <button onclick="adicionar()">Adicionar pessoas</button>
+    <button onclick="posicao()">Posição</button>
+    <button onclick="remover()">Remover</button>
+    <button onclick="Limparlista()">Limpar</button> <br><br>
+    <div id="minhadiv"></div>
+    <hr>
+</body>
 </html>
