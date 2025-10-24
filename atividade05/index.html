@@ -14,24 +14,26 @@
 
       for (let i = 0; i < ListadeLivros.length; i++) {
         const Livros = ListadeLivros[i];
-        const tag = '<h5>' + i + '- Nome: ' + pessoa.nome + ' | Contato: '+ pessoa.contato + '</h5>';
+        const tag = '<h5>' + i + '- Titulo: ' + Livros.Titulo + ' | Autor: '+ Livros.Autor + ' | Ano: '+ Livros.Ano + ' </h5>';
         container.innerHTML += tag;
       }
     }
 	
 	function limpaCampos() {
-	  document.getElementById('nome').value = '';
-      document.getElementById('contato').value = '';
+	  document.getElementById('Titulo').value = '';
+      document.getElementById('Autor').value = '';
+      document.getElementById('Ano').value = '';
 	}
 
     function adicionar() {
-	  // pega os valores digitados nos inputs
-  	  const nome = document.getElementById('nome').value;
-      const contato = document.getElementById('contato').value;
+	  
+  	  const Titulo = document.getElementById('Titulo').value;
+      const Autor = document.getElementById('Autor').value;
+      const Ano = document.getElementById('Ano').value = '';
 
-      pilhaPessoas.push({ nome, contato });
+      ListadeLivros.push({ Titulo, Autor, Ano });
 
-      // limpa os campos e atualiza a lista
+      
 	  limpaCampos();
       mostrarLista();
     }
@@ -39,32 +41,32 @@
     function posicao() {
       const indice = Number(prompt('Qual posição da lista deseja consultar?'));
 
-      if (indice < 0 || indice >= pilhaPessoas.length) {
+      if (indice < 0 || indice >= ListadeLivros.length) {
         alert('Posição inválida!');
         return;
       }
 
-      const pessoa = pilhaPessoas[indice];
-      alert('Na posição ' + indice + ' está: Nome: ' + pessoa.nome + ' - Contato: ' + pessoa.contato);
+      const Livros = ListadeLivros[indice];
+      alert('Na posição ' + indice + ' está: Titulo: ' + Livros.Autor + ' - Ano: ' + Livros.Ano);
     }
 
     function limparLista() {
-      pilhaPessoas = [];
+      ListadeLivros = [];
       mostrarLista();
     }
 
     function remover() {
-      if (pilhaPessoas.length === 0) {
-        alert('A pilha está vazia!');
+      if (ListadeLivros.length === 0) {
+        alert('A Lista está vazia!');
       } else {
-        const removido = pilhaPessoas.pop();
-        alert('Removido: ' + removido.nome + ' - ' + removido.contato);
+        const removido = ListadeLivros.pop();
+        alert('Removido: ' + removido.Titulo + ' - ' + removido.Autor + '-' + removido.Ano);
         mostrarLista();
       }
     }
 
     function inverterPilha() {
-      pilhaPessoas.reverse();
+      ListadeLivros.reverse();
       mostrarLista();
     }
   </script>
@@ -83,10 +85,6 @@
 	<input type="text" id="Ano" placeholder="Digite o Ano">
 
 	<button onclick="adicionar()">Adicionar</button>
-
-    <div id="Titulo"></div>
-    <div id="Autor"></div>
-    <div id="Ano"></div>
 
 	
 	
