@@ -5,7 +5,6 @@
   <title>Lista de Livros</title>
 
   <script>
-    
     let ListadeLivros = [];
 
     function mostrarLivros() {
@@ -14,7 +13,9 @@
 
       for (let i = 0; i < ListadeLivros.length; i++) {
         const Livros = ListadeLivros[i];
-        const tag = '<h5>' + i + '- Titulo: ' + Livros.Titulo + ' | Autor: '+ Livros.Autor + ' | Ano: '+ Livros.Ano + ' </h5>';
+        const tag = '<h5>' + i + ' - Título: ' + Livros.Titulo + 
+                    ' | Autor: ' + Livros.Autor + 
+                    ' | Ano: ' + Livros.Ano + '</h5>';
         container.innerHTML += tag;
       }
     }
@@ -26,15 +27,18 @@
 	}
 
     function adicionar() {
-	  
   	  const Titulo = document.getElementById('Titulo').value;
       const Autor = document.getElementById('Autor').value;
-      const Ano = document.getElementById('Ano').value = '';
+      const Ano = document.getElementById('Ano').value;
+
+      if (!Titulo || !Autor || !Ano) {
+        alert('Preencha todos os campos antes de adicionar!');
+        return;
+      }
 
       ListadeLivros.push({ Titulo, Autor, Ano });
 
-      
-	  limpaCampos();
+      limpaCampos();
       mostrarLivros();
     }
 
@@ -47,28 +51,29 @@
       }
 
       const Livros = ListadeLivros[indice];
-      alert('Na posição ' + indice + ' está: Titulo: ' + Livros.Titulo + ' - Autor: ' + Livros.Autor + '- Ano' + Livors.Ano);
+      alert('Na posição ' + indice + ' está:\nTítulo: ' + Livros.Titulo + '\nAutor: ' + Livros.Autor + '\nAno: ' + Livros.Ano);
     }
 
     function limparLista() {
       ListadeLivros = [];
-      mostrarLista();
+      mostrarLivros();
     }
 
     function remover() {
       if (ListadeLivros.length === 0) {
-        alert('A Lista está vazia!');
+        alert('A lista está vazia!');
       } else {
         const removido = ListadeLivros.pop();
-        alert('Removido: ' + removido.Titulo + ' - ' + removido.Autor + '-' + removido.Ano);
-        mostrarLista();
+        alert('Removido: ' + removido.Titulo + ' - ' + removido.Autor + ' - ' + removido.Ano);
+        mostrarLivros();
       }
     }
 
     function inverterPilha() {
       ListadeLivros.reverse();
-      mostrarLista();
+      mostrarLivros();
     }
+
     function inserirNaPosicao() {
       const pos = Number(prompt('Em qual posição deseja inserir o novo livro? (0 até ' + ListadeLivros.length + ')'));
 
@@ -81,41 +86,42 @@
       const Autor = prompt('Digite o autor do livro:');
       const Ano = prompt('Digite o ano do livro:');
 
-      if (Titulo, Autor, Ano) {
+      if (!Titulo || !Autor || !Ano) {
         alert('Todos os campos devem ser preenchidos!');
         return;
       }
 
+      
       ListadeLivros.splice(pos, 0, { Titulo, Autor, Ano });
 
       alert('Livro inserido na posição ' + pos + ' com sucesso!');
       mostrarLivros();
     }
+
   </script>
 </head>
 
 <body>
   <h1>Lista de Livros</h1>
 
-	<label>Titulo:</label>
-	<input type="text" id="Titulo" placeholder="Digite o Titulo"> 
+	<label>Título:</label>
+	<input type="text" id="Titulo" placeholder="Digite o título"> 
 
 	<label>Autor:</label>
-	<input type="text" id="Autor" placeholder="Digite o Autor">
+	<input type="text" id="Autor" placeholder="Digite o autor">
 
     <label>Ano:</label>
-	<input type="text" id="Ano" placeholder="Digite o Ano">
+	<input type="text" id="Ano" placeholder="Digite o ano">
 
 	<button onclick="adicionar()">Adicionar</button>
-
 	
 	
 	<hr>
 
-    <button onclick="posicao()">Posição</button>
+    <button onclick="posicao()">Consultar Posição</button>
     <button onclick="remover()">Remover Último</button>
     <button onclick="limparLista()">Limpar Lista</button>
-    <button onclick="inverterPilha()">Inverter</button>
+    <button onclick="inverterPilha()">Inverter Lista</button>
     <button onclick="inserirNaPosicao()">Inserir em Posição</button>
 
     <br><br>
