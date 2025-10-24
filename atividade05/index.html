@@ -35,7 +35,7 @@
 
       
 	  limpaCampos();
-      mostrarLista();
+      mostrarLivros();
     }
 
     function posicao() {
@@ -69,6 +69,28 @@
       ListadeLivros.reverse();
       mostrarLista();
     }
+    function inserirNaPosicao() {
+      const pos = Number(prompt('Em qual posição deseja inserir o novo livro? (0 até ' + ListadeLivros.length + ')'));
+
+      if (pos < 0 || pos > ListadeLivros.length || isNaN(pos)) {
+        alert('Posição inválida!');
+        return;
+      }
+
+      const Titulo = prompt('Digite o título do livro:');
+      const Autor = prompt('Digite o autor do livro:');
+      const Ano = prompt('Digite o ano do livro:');
+
+      if (Titulo, Autor, Ano) {
+        alert('Todos os campos devem ser preenchidos!');
+        return;
+      }
+
+      ListadeLivros.splice(pos, 0, { Titulo, Autor, Ano });
+
+      alert('Livro inserido na posição ' + pos + ' com sucesso!');
+      mostrarLivros();
+    }
   </script>
 </head>
 
@@ -94,6 +116,7 @@
     <button onclick="remover()">Remover Último</button>
     <button onclick="limparLista()">Limpar Lista</button>
     <button onclick="inverterPilha()">Inverter</button>
+    <button onclick="inserirNaPosicao()">Inserir em Posição</button>
 
     <br><br>
   
