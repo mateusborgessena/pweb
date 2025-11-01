@@ -39,7 +39,7 @@
 	
 	function limpaCampos() {
 	  document.getElementById('nome').value = '';
-      document.getElementById('contato').value = '';
+      document.getElementById('CargaH').value = '';
 	}
 
     function limparLista() {
@@ -63,8 +63,18 @@
     }
 	
 	function salvar() {
-		const nome = document.getElementById('Nome').value.trim();
-        const CargaH 
+		const nome = document.getElementById('nome').value.trim();
+        const CargaH = document.getElementById('CargaH').value.trim();
+
+        if (indiceEdicao === null){
+            pilhaCurso.push({ nome, CargaH});
+        } else {
+            pilhaCurso[indiceEdicao] = {nome, CargaH};
+            indiceEdicao = null; 
+        }
+        document.getElementById('nome').value = '';
+        document.getElementById('CargaH').value = '';
+        mostrarLista();
     }
 
    function editarCargaH(indice) {
