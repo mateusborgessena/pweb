@@ -78,7 +78,10 @@
     }
 
    function editarCargaH(indice) {
-      // implementar a função editar a partir de um indice
+      const Curso = pilhaCurso[indice];
+      document.getElementById('nome').value = Curso.nome;
+      document.getElementById('CargaH').value = Curso.CargaH;
+      indiceEdicao = indice;
     }
 	
 	function removerCargaH(indice) {
