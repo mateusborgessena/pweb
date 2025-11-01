@@ -85,13 +85,9 @@
     }
 	
 	function removerCargaH(indice) {
-      
-        if (pilhaCurso.length === 0) {
-        alert('A lista está vazia!');
-      } else {
-        const removido = pilhaCurso.pop();
-        alert('Removido: ' + removido.nome + ' - ' + removido.CargaH + ' - ' + removido.Ações);
-        mostrarLista();
+     if (confirm("Deseja realmente remover este curso?")) {
+     pilhaCurso.splice(indice, 1);
+     mostrarLista();
       }
     }	
 	
@@ -115,7 +111,7 @@
 
         <div class="col-md-5">
           <label class="form-label">Carga Horaria(h)</label>
-          <input type="text" id="contato" class="form-control" placeholder="Digite o contato">
+          <input type="text" id="CargaH" class="form-control" placeholder="Digite a carga horária">
         </div>
 
 
