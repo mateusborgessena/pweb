@@ -42,19 +42,6 @@
       document.getElementById('contato').value = '';
 	}
 
-
-    function posicao() {
-      const indice = Number(prompt('Qual posição da lista deseja consultar?'));
-
-      if (indice < 0 || indice >= pilhaPessoas.length) {
-        alert('Posição inválida!');
-        return;
-      }
-
-      const pessoa = pilhaPessoas[indice];
-      alert('Na posição ' + indice + ' está: Nome: ' + pessoa.nome + ' - Contato: ' + pessoa.contato);
-    }
-
     function limparLista() {
       pilhaPessoas = [];
       mostrarLista();
@@ -124,8 +111,6 @@
 
 	
 	<hr>
-
-    <button class="btn btn-secondary" onclick="posicao()">Posição</button>
     <button class="btn btn-danger" onclick="remover()">Remover Último</button>
     <button class="btn btn-danger" onclick="limparLista()">Limpar Lista</button>
     <button class="btn btn-secondary" onclick="inverterPilha()">Inverter</button>
@@ -138,7 +123,7 @@
         <tr>
           <th>#</th>
           <th>Nome</th>
-          <th>Contato</th>
+          <th>Carga Horaria</th>
 		   <th>Ações</th>
         </tr>
       </thead>
